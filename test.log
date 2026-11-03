@@ -1,0 +1,953 @@
+2026-11-02 20:33:51,395 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 20:33:51,396 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 20:33:52,228 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 20:33:52,228 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 20:33:52,245 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 20:33:52,246 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 20:33:52,933 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"266","createdAt":"2026-11-02T23:33:42.769Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 20:33:52,933 - test_api_users - INFO - Usuario creado exitosamente con ID: 266
+2026-11-02 20:33:52,943 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 20:33:52,943 - test_api_users - INFO - Eliminando usuario con ID: 266
+2026-11-02 20:33:52,944 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/266
+2026-11-02 20:34:29,598 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 20:34:29,598 - test_api_users - INFO - Usuario con ID 266 eliminado exitosamente.
+2026-11-02 20:39:32,931 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 20:39:32,931 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 20:39:34,464 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 20:39:34,464 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 20:39:34,470 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 20:39:34,471 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 20:39:34,994 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"736","createdAt":"2026-11-02T23:39:24.834Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 20:39:34,994 - test_api_users - INFO - Usuario creado exitosamente con ID: 736
+2026-11-02 20:39:35,002 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 20:39:35,002 - test_api_users - INFO - Eliminando usuario con ID: 736
+2026-11-02 20:39:35,003 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/736
+2026-11-02 20:39:57,349 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 20:39:57,349 - test_api_users - INFO - Usuario con ID 736 eliminado exitosamente.
+2026-11-02 20:39:57,354 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:03,880 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 20:40:04,630 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:40:04,833 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:40:04,919 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:40:05,012 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:40:05,080 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:40:05,080 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 20:40:05,081 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:07,287 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:09,116 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 20:40:09,519 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 20:40:09,776 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 20:40:09,892 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:40:10,003 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:40:10,004 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 20:40:10,040 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 20:40:10,040 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 20:40:10,041 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:12,219 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:13,946 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 20:40:14,310 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 20:40:14,468 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 20:40:14,558 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:40:14,652 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:40:14,719 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:40:14,720 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 20:40:14,721 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:16,899 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:40:18,685 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 20:40:19,061 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:40:19,250 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:40:19,357 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:40:19,466 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:40:19,559 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:40:19,559 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 20:40:19,680 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 20:40:19,680 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 20:40:19,788 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 20:40:19,876 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 20:40:19,876 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 20:40:19,988 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 20:40:20,093 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 20:40:20,203 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 20:40:20,338 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 20:40:20,338 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 20:40:20,437 - pages.base_page - INFO - Clic realizado en el elemento (id, finish).
+2026-11-02 20:40:20,476 - pages.base_page - INFO - Texto obtenido del elemento (class name, complete-header): 'Thank you for your order!'.
+2026-11-02 20:40:20,476 - test_ecommerce_flow - INFO - ¡Flujo E2E de compra completado y validado exitosamente!
+2026-11-02 20:40:20,477 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:13,705 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:16,614 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 20:48:17,389 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:48:17,767 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:48:17,939 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:48:18,088 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:48:18,242 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:48:18,243 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 20:48:18,246 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:20,660 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:23,144 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 20:48:23,569 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 20:48:23,823 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 20:48:23,956 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:48:24,087 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:48:24,087 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 20:48:24,132 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 20:48:24,132 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 20:48:24,134 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:26,378 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:28,457 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 20:48:28,906 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 20:48:29,159 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 20:48:29,267 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:48:29,382 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:48:29,468 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:48:29,468 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 20:48:29,470 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:31,685 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:33,975 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 20:48:34,568 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:48:34,940 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:48:35,107 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:48:35,247 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:48:35,354 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:48:35,354 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 20:48:35,451 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 20:48:35,453 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 20:48:35,557 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 20:48:35,684 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 20:48:35,684 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 20:48:35,847 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 20:48:35,987 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 20:48:36,145 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 20:48:36,318 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 20:48:36,319 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 20:48:46,605 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 20:48:47,270 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-48-47_test_e2e_purchase_flow.png
+2026-11-02 20:48:47,273 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:49,681 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:48:51,799 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 20:48:52,486 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 20:48:52,486 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 20:48:52,661 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-48-52_test_forced_failure_for_screenshot.png
+2026-11-02 20:48:52,663 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:49:09,279 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:49:11,215 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 20:49:11,778 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 20:49:11,779 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 20:49:12,159 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-49-12_test_forced_failure_for_screenshot.png
+2026-11-02 20:49:12,161 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:03,030 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 20:50:03,031 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 20:50:04,599 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 20:50:04,599 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 20:50:04,604 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 20:50:04,604 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 20:50:29,218 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"401","createdAt":"2026-11-02T23:50:19.064Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 20:50:29,219 - test_api_users - INFO - Usuario creado exitosamente con ID: 401
+2026-11-02 20:50:29,224 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 20:50:29,224 - test_api_users - INFO - Eliminando usuario con ID: 401
+2026-11-02 20:50:29,224 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/401
+2026-11-02 20:50:36,565 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 20:50:36,565 - test_api_users - INFO - Usuario con ID 401 eliminado exitosamente.
+2026-11-02 20:50:36,569 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:38,548 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 20:50:39,257 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:50:39,512 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:50:39,620 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:50:39,710 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:50:39,788 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:50:39,789 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 20:50:39,790 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:41,981 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:43,951 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 20:50:44,380 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 20:50:44,649 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 20:50:44,781 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:50:44,917 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:50:44,917 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 20:50:44,973 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 20:50:44,973 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 20:50:44,974 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:47,363 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:49,320 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 20:50:49,872 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 20:50:50,238 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 20:50:50,407 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:50:50,583 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:50:51,235 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:50:51,235 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 20:50:51,237 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:53,496 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:50:55,808 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 20:50:56,296 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:50:56,645 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:50:56,800 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:50:56,989 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:50:57,168 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:50:57,169 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 20:50:57,348 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 20:50:57,349 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 20:50:57,520 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 20:50:57,839 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 20:50:57,840 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 20:50:58,019 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 20:50:58,177 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 20:50:58,313 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 20:50:58,460 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 20:50:58,460 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 20:50:58,611 - pages.base_page - INFO - Clic realizado en el elemento (id, finish).
+2026-11-02 20:50:58,672 - pages.base_page - INFO - Texto obtenido del elemento (class name, complete-header): 'Thank you for your order!'.
+2026-11-02 20:50:58,673 - test_ecommerce_flow - INFO - ¡Flujo E2E de compra completado y validado exitosamente!
+2026-11-02 20:50:58,675 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:51:00,916 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:51:03,191 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 20:51:03,948 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 20:51:03,949 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 20:51:04,334 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-51-04_test_forced_failure_for_screenshot.png
+2026-11-02 20:51:04,335 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:55:25,020 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:55:27,043 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 20:55:27,704 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 20:55:27,704 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 20:55:28,035 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-55-27_test_forced_failure_for_screenshot.png
+2026-11-02 20:55:28,171 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:00,515 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 20:56:00,516 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 20:56:01,107 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 20:56:01,107 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 20:56:01,119 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 20:56:01,120 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 20:56:04,716 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"518","createdAt":"2026-11-02T23:55:54.566Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 20:56:04,717 - test_api_users - INFO - Usuario creado exitosamente con ID: 518
+2026-11-02 20:56:04,732 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 20:56:04,733 - test_api_users - INFO - Eliminando usuario con ID: 518
+2026-11-02 20:56:04,733 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/518
+2026-11-02 20:56:05,274 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 20:56:05,274 - test_api_users - INFO - Usuario con ID 518 eliminado exitosamente.
+2026-11-02 20:56:05,279 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:08,064 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 20:56:08,532 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:56:08,765 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:56:08,904 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:56:09,062 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:56:09,188 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:56:09,189 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 20:56:09,190 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:11,493 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:13,916 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 20:56:14,355 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 20:56:14,580 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 20:56:14,900 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:56:15,078 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:56:15,079 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 20:56:15,132 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 20:56:15,132 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 20:56:15,134 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:17,374 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:19,294 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 20:56:19,892 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 20:56:20,177 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 20:56:20,291 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:56:20,410 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:56:20,495 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:56:20,495 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 20:56:20,497 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:22,685 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:24,427 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 20:56:24,759 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 20:56:24,906 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 20:56:24,998 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 20:56:25,108 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 20:56:25,199 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 20:56:25,200 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 20:56:25,286 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 20:56:25,286 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 20:56:25,353 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 20:56:25,426 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 20:56:25,426 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 20:56:25,586 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 20:56:25,697 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 20:56:25,785 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 20:56:25,892 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 20:56:25,892 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 20:56:36,144 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 20:56:36,378 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-56-36_test_e2e_purchase_flow.png
+2026-11-02 20:56:36,489 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:38,688 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 20:56:40,430 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 20:56:40,779 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 20:56:40,779 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 20:56:40,927 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_20-56-40_test_forced_failure_for_screenshot.png
+2026-11-02 20:56:41,033 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:00:48,981 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:00:50,709 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:00:51,333 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:00:51,517 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:00:51,645 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:00:51,737 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:00:51,825 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:00:51,826 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:00:51,828 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:00:54,043 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:00:55,776 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:00:56,154 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:00:56,338 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:00:56,469 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:00:56,546 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:00:56,546 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:00:56,573 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:00:56,574 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:00:56,575 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:00:58,714 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:00,436 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:01:00,777 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:01:00,956 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:01:01,073 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:01:01,150 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:01:01,214 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:01:01,214 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:01:01,215 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:03,385 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:05,219 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:01:05,605 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:01:05,853 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:01:06,016 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:01:06,105 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:01:06,197 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:01:06,198 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:01:06,303 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:01:06,303 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:01:06,382 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:01:06,458 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:01:06,459 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:01:06,600 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:01:06,984 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:01:07,211 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:01:07,395 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:01:07,395 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:01:17,750 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 21:01:18,022 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-01-17_test_e2e_purchase_flow.png
+2026-11-02 21:01:18,136 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:20,320 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:22,051 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:01:22,422 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:01:22,422 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:01:22,591 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-01-22_test_forced_failure_for_screenshot.png
+2026-11-02 21:01:22,703 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:33,363 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:34,746 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:01:35,103 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:01:35,289 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:01:35,391 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:01:35,469 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:01:35,548 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:01:35,550 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:01:35,641 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:01:35,641 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:01:35,736 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:01:35,833 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:01:35,834 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:01:35,965 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:01:36,064 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:01:36,169 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:01:36,264 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:01:36,264 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:01:46,705 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 21:01:47,043 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-01-46_test_e2e_purchase_flow.png
+2026-11-02 21:01:47,135 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:56,539 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:01:57,902 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:01:58,244 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:01:58,470 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:01:58,602 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:01:58,702 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:01:58,791 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:01:58,792 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:01:58,793 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:00,946 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:02,744 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:02:03,108 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:02:03,287 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:02:03,527 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:02:03,601 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:02:03,601 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:02:03,630 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:02:03,631 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:02:03,632 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:05,772 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:07,489 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:02:07,829 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:02:07,994 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:02:08,102 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:02:08,176 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:02:08,245 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:02:08,245 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:02:08,246 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:19,555 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:20,845 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:02:21,210 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:02:21,400 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:02:21,547 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:02:21,632 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:02:21,705 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:02:21,706 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:02:21,797 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:02:21,798 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:02:21,876 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:02:21,943 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:02:21,943 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:02:22,056 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:02:22,157 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:02:22,257 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:02:22,355 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:02:22,355 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:02:32,774 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 21:02:33,121 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-02-32_test_e2e_purchase_flow.png
+2026-11-02 21:02:33,232 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:02:44,955 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:02:44,955 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:03:48,696 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:03:48,696 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:03:48,709 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:03:48,710 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:04:52,392 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"399","createdAt":"2026-11-03T00:04:42.252Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:04:52,393 - test_api_users - INFO - Usuario creado exitosamente con ID: 399
+2026-11-02 21:04:52,405 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:04:52,405 - test_api_users - INFO - Eliminando usuario con ID: 399
+2026-11-02 21:04:52,405 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/399
+2026-11-02 21:04:55,953 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:04:55,953 - test_api_users - INFO - Usuario con ID 399 eliminado exitosamente.
+2026-11-02 21:04:55,959 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:04:58,065 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:04:58,450 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:04:58,635 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:04:58,769 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:04:58,859 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:04:58,956 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:04:58,956 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:04:58,958 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:01,189 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:02,965 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:05:03,318 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:05:03,518 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:05:03,649 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:05:03,731 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:05:03,731 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:05:03,758 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:05:03,759 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:05:03,759 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:05,922 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:07,977 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:05:08,310 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:05:08,508 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:05:08,650 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:05:08,741 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:05:08,817 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:05:08,817 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:05:08,818 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:11,013 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:12,816 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:05:13,180 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:05:13,395 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:05:13,507 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:05:13,598 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:05:13,681 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:05:13,682 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:05:13,783 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:05:13,783 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:05:13,857 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:05:13,924 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:05:13,925 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:05:14,084 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:05:14,217 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:05:14,381 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:05:14,440 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:05:14,440 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:05:24,760 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 21:05:25,116 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-05-24_test_e2e_purchase_flow.png
+2026-11-02 21:05:25,206 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:27,428 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:05:29,269 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:05:29,787 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:05:29,787 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:05:29,973 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-05-29_test_forced_failure_for_screenshot.png
+2026-11-02 21:05:30,091 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:30,468 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:31,920 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:06:32,376 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:06:32,607 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:06:32,737 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:06:32,823 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:06:32,900 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:06:32,901 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:06:32,903 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:35,088 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:36,956 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:06:37,344 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:06:37,630 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:06:37,785 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:06:37,872 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:06:37,873 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:06:37,903 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:06:37,904 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:06:37,905 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:40,063 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:41,792 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:06:42,140 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:06:42,319 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:06:42,428 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:06:42,502 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:06:42,568 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:06:42,568 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:06:42,570 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:06:58,586 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:06:58,586 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:07:06,196 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:07:06,196 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:07:06,202 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:07:06,202 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:07:13,758 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"89","createdAt":"2026-11-03T00:07:03.616Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your an
+2026-11-02 21:07:13,758 - test_api_users - INFO - Usuario creado exitosamente con ID: 89
+2026-11-02 21:07:13,768 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:07:13,768 - test_api_users - INFO - Eliminando usuario con ID: 89
+2026-11-02 21:07:13,769 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/89
+2026-11-02 21:07:15,308 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:07:15,308 - test_api_users - INFO - Usuario con ID 89 eliminado exitosamente.
+2026-11-02 21:07:15,325 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:17,002 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:07:17,389 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:07:17,616 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:07:17,740 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:07:17,809 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:07:17,877 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:07:17,877 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:07:17,879 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:20,046 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:21,799 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:07:22,104 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:07:22,276 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:07:22,371 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:07:22,436 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:07:22,437 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:07:22,463 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:07:22,463 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:07:22,464 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:24,599 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:26,319 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:07:26,654 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:07:26,812 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:07:26,928 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:07:26,997 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:07:27,059 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:07:27,059 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:07:27,061 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:29,237 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:30,946 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:07:31,263 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:07:31,476 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:07:31,588 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:07:31,659 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:07:31,727 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:07:31,727 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:07:31,803 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:07:31,803 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:07:31,860 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:07:32,463 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:07:32,464 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:07:42,848 - pages.base_page - ERROR - El campo de texto (id, first-name) no estuvo disponible para interactuar tras 10 segundos.
+2026-11-02 21:07:43,086 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-07-42_test_e2e_purchase_flow.png
+2026-11-02 21:07:43,177 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:45,347 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:07:46,915 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:07:47,290 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:07:47,291 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:07:47,478 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-07-47_test_forced_failure_for_screenshot.png
+2026-11-02 21:07:47,592 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:33,045 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:22:33,045 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:22:36,656 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:22:36,656 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:22:36,664 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:22:36,664 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:22:37,223 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"310","createdAt":"2026-11-03T00:22:27.097Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:22:37,224 - test_api_users - INFO - Usuario creado exitosamente con ID: 310
+2026-11-02 21:22:37,231 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:22:37,231 - test_api_users - INFO - Eliminando usuario con ID: 310
+2026-11-02 21:22:37,232 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/310
+2026-11-02 21:22:44,807 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:22:44,808 - test_api_users - INFO - Usuario con ID 310 eliminado exitosamente.
+2026-11-02 21:22:44,822 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:46,648 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:22:47,515 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:22:47,691 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:22:48,014 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:22:48,160 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:22:48,245 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:22:48,245 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:22:48,246 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:50,512 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:52,200 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:22:52,561 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:22:52,810 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:22:52,973 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:22:53,051 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:22:53,051 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:22:53,077 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:22:53,077 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:22:53,078 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:55,223 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:56,887 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:22:57,197 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:22:57,353 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:22:57,447 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:22:57,521 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:22:57,579 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:22:57,580 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:22:57,581 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:22:59,735 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:23:01,396 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:23:01,716 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:23:01,890 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:23:01,994 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:23:02,063 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:23:02,131 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:23:02,131 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:23:02,218 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:23:02,218 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:23:02,287 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:23:02,367 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:23:02,367 - pages.checkout_page - INFO - Verificando que el formulario de checkout sea visible.
+2026-11-02 21:23:02,383 - pages.base_page - INFO - El elemento (id, first-name) es visible.
+2026-11-02 21:23:02,384 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:23:02,508 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:23:02,603 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:23:02,690 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:23:02,767 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:23:02,768 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:23:13,017 - pages.base_page - ERROR - El elemento (id, finish) no estuvo disponible para clic tras 10 segundos.
+2026-11-02 21:23:13,258 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-23-13_test_e2e_purchase_flow.png
+2026-11-02 21:23:13,353 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:23:15,538 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:23:17,250 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:23:17,641 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:23:17,641 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:23:17,811 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-23-17_test_forced_failure_for_screenshot.png
+2026-11-02 21:23:17,937 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:40,444 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:28:40,445 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:28:41,026 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:28:41,026 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:28:41,032 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:28:41,032 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:28:44,627 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"341","createdAt":"2026-11-03T00:28:34.504Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:28:44,627 - test_api_users - INFO - Usuario creado exitosamente con ID: 341
+2026-11-02 21:28:44,634 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:28:44,634 - test_api_users - INFO - Eliminando usuario con ID: 341
+2026-11-02 21:28:44,634 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/341
+2026-11-02 21:28:44,929 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:28:44,930 - test_api_users - INFO - Usuario con ID 341 eliminado exitosamente.
+2026-11-02 21:28:44,938 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:47,094 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:28:47,459 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:28:47,685 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:28:47,844 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:28:48,166 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:28:48,243 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:28:48,244 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:28:48,245 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:50,444 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:52,377 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:28:52,864 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:28:53,131 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:28:53,303 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:28:53,589 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:28:53,590 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:28:53,618 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:28:53,618 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:28:53,619 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:55,796 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:28:57,507 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:28:57,867 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:28:58,079 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:28:58,211 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:28:58,546 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:28:58,617 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:28:58,618 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:28:58,619 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:29:00,803 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:29:02,499 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:29:02,859 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:29:03,076 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:29:03,180 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:29:03,488 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:29:03,564 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:29:03,565 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:29:03,888 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:29:03,888 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:29:04,195 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:29:14,513 - pages.base_page - ERROR - El elemento (id, checkout) no estuvo disponible tras 10 segundos.
+2026-11-02 21:29:14,838 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-29-14_test_e2e_purchase_flow.png
+2026-11-02 21:29:15,008 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:29:17,182 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:29:18,837 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:29:19,195 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:29:19,195 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:29:19,360 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-29-19_test_forced_failure_for_screenshot.png
+2026-11-02 21:29:19,469 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:29:36,866 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:29:36,866 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:29:37,422 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:29:37,423 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:29:37,434 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:29:37,435 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:30:02,032 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"464","createdAt":"2026-11-03T00:29:51.907Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:30:02,032 - test_api_users - INFO - Usuario creado exitosamente con ID: 464
+2026-11-02 21:30:02,042 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:30:02,042 - test_api_users - INFO - Eliminando usuario con ID: 464
+2026-11-02 21:30:02,043 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/464
+2026-11-02 21:30:38,421 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:30:38,421 - test_api_users - INFO - Usuario con ID 464 eliminado exitosamente.
+2026-11-02 21:30:38,426 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:40,279 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:30:40,585 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:30:40,760 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:30:40,890 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:30:41,163 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:30:41,221 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:30:41,222 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:30:41,223 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:43,393 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:45,016 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:30:45,349 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:30:45,545 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:30:45,679 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:30:45,987 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:30:45,987 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:30:46,011 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:30:46,011 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:30:46,012 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:48,163 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:49,784 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:30:50,081 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:30:50,238 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:30:50,354 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:30:50,686 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:30:50,739 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:30:50,739 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:30:50,740 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:52,918 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:30:54,553 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:30:54,858 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:30:55,083 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:30:55,178 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:30:55,515 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:30:55,575 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:30:55,575 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:30:55,855 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:30:55,855 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:30:56,138 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:30:56,436 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:30:56,436 - pages.checkout_page - INFO - Verificando que el formulario de checkout sea visible.
+2026-11-02 21:31:06,792 - pages.base_page - WARNING - El elemento (id, first-name) no es visible tras 10 segundos.
+2026-11-02 21:31:06,993 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-31-06_test_e2e_purchase_flow.png
+2026-11-02 21:31:07,072 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:31:09,398 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:31:11,011 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:31:12,459 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:31:12,459 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:31:12,574 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-31-12_test_forced_failure_for_screenshot.png
+2026-11-02 21:31:12,678 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:34:48,704 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:34:48,705 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:34:50,293 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:34:50,294 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:34:50,297 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:34:50,297 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:34:51,813 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"574","createdAt":"2026-11-03T00:34:41.692Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:34:51,813 - test_api_users - INFO - Usuario creado exitosamente con ID: 574
+2026-11-02 21:34:51,828 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:34:51,829 - test_api_users - INFO - Eliminando usuario con ID: 574
+2026-11-02 21:34:51,829 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/574
+2026-11-02 21:34:52,124 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:34:52,124 - test_api_users - INFO - Usuario con ID 574 eliminado exitosamente.
+2026-11-02 21:34:52,132 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:34:54,075 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:34:54,864 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:34:55,051 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:34:55,166 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:34:55,470 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:34:55,536 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:34:55,536 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:34:55,537 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:34:57,739 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:34:59,513 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:34:59,851 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:35:00,041 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:35:00,182 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:35:00,575 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:35:00,576 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:35:00,602 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:35:00,602 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:35:00,603 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:02,754 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:04,490 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:35:04,860 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:35:05,089 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:35:05,228 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:35:05,582 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:35:05,645 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:35:05,645 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:35:05,647 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:07,832 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:09,632 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:35:10,009 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:35:10,220 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:35:10,343 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:35:10,652 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:35:10,720 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:35:10,720 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:35:11,002 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:35:11,003 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:35:11,290 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:35:11,569 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:35:12,570 - pages.checkout_page - INFO - Verificando que el formulario de checkout sea visible.
+2026-11-02 21:35:22,932 - pages.base_page - WARNING - El elemento (id, first-name) no es visible tras 10 segundos.
+2026-11-02 21:35:23,216 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-35-23_test_e2e_purchase_flow.png
+2026-11-02 21:35:23,318 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:25,516 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:35:27,316 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:35:27,685 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:35:27,685 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:35:27,873 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-35-27_test_forced_failure_for_screenshot.png
+2026-11-02 21:35:28,016 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:37:42,380 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:37:42,380 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:38:07,047 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:38:07,047 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:38:07,051 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:38:07,051 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:39:10,791 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"499","createdAt":"2026-11-03T00:39:00.676Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:39:10,791 - test_api_users - INFO - Usuario creado exitosamente con ID: 499
+2026-11-02 21:39:10,799 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:39:10,799 - test_api_users - INFO - Eliminando usuario con ID: 499
+2026-11-02 21:39:10,800 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/499
+2026-11-02 21:39:11,306 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:39:11,307 - test_api_users - INFO - Usuario con ID 499 eliminado exitosamente.
+2026-11-02 21:39:11,320 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:13,002 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:39:13,340 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:39:13,544 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:39:13,670 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:39:13,950 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:39:14,017 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:39:14,017 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:39:14,018 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:16,183 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:17,836 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:39:18,160 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:39:18,333 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:39:18,450 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:39:18,739 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:39:18,739 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:39:18,764 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:39:18,764 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:39:18,765 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:20,897 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:22,614 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:39:22,916 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:39:23,089 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:39:23,199 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:39:23,476 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:39:23,535 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:39:23,536 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:39:23,537 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:25,698 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:27,326 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:39:27,650 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:39:27,854 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:39:27,991 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:39:28,280 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:39:28,352 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:39:28,352 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:39:28,687 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:39:28,688 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:39:29,024 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:39:29,058 - pages.base_page - INFO - Texto obtenido del elemento (class name, title): 'Products'.
+2026-11-02 21:39:29,358 - conftest - ERROR - Test fallido: test_e2e_purchase_flow. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-39-29_test_e2e_purchase_flow.png
+2026-11-02 21:39:29,534 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:31,675 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:39:33,423 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:39:33,787 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:39:33,787 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:39:33,943 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-39-33_test_forced_failure_for_screenshot.png
+2026-11-02 21:39:34,048 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:43:47,502 - test_api_users - INFO - Ejecutando test_get_users.
+2026-11-02 21:43:47,503 - utils.api_client - INFO - API GET -> URL: https://reqres.in/api/users | Params: {'page': 1}
+2026-11-02 21:43:51,094 - utils.api_client - INFO - API RESPONSE <- Status Code: 200 | Body: {"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2
+2026-11-02 21:43:51,095 - test_api_users - INFO - test_get_users completado exitosamente.
+2026-11-02 21:43:51,100 - test_api_users - INFO - Ejecutando test_create_user.
+2026-11-02 21:43:51,101 - utils.api_client - INFO - API POST -> URL: https://reqres.in/api/users | Payload JSON: {'name': 'Cristian Purpura', 'job': 'QA Automation / Logistics'} | Data: None
+2026-11-02 21:43:52,632 - utils.api_client - INFO - API RESPONSE <- Status Code: 201 | Body: {"name":"Cristian Purpura","job":"QA Automation / Logistics","id":"186","createdAt":"2026-11-03T00:43:42.520Z","support":{"url":"https://reqres.in/go/posthog","text":"PostHog ingests and stores your a
+2026-11-02 21:43:52,633 - test_api_users - INFO - Usuario creado exitosamente con ID: 186
+2026-11-02 21:43:52,643 - test_api_users - INFO - Ejecutando test_delete_user.
+2026-11-02 21:43:52,643 - test_api_users - INFO - Eliminando usuario con ID: 186
+2026-11-02 21:43:52,644 - utils.api_client - INFO - API DELETE -> URL: https://reqres.in/api/users/186
+2026-11-02 21:44:17,294 - utils.api_client - INFO - API RESPONSE <- Status Code: 204
+2026-11-02 21:44:17,295 - test_api_users - INFO - Usuario con ID 186 eliminado exitosamente.
+2026-11-02 21:44:17,302 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:19,093 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user
+2026-11-02 21:44:19,470 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:44:19,681 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:44:19,807 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:44:20,160 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:44:20,228 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:44:20,228 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.
+2026-11-02 21:44:20,229 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:22,433 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:24,096 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user
+2026-11-02 21:44:24,446 - pages.login_page - INFO - Iniciando sesión con el usuario: locked_out_user
+2026-11-02 21:44:24,644 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'locked_out_user'.
+2026-11-02 21:44:24,781 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:44:25,062 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:44:25,062 - pages.login_page - INFO - Obteniendo mensaje de error de login.
+2026-11-02 21:44:25,089 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test='error']): 'Epic sadface: Sorry, this user has been locked out.'.
+2026-11-02 21:44:25,090 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.
+2026-11-02 21:44:25,091 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:27,243 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:28,920 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user
+2026-11-02 21:44:29,272 - pages.login_page - INFO - Iniciando sesión con el usuario: problem_user
+2026-11-02 21:44:29,499 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'problem_user'.
+2026-11-02 21:44:29,630 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:44:29,955 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:44:30,026 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:44:30,026 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.
+2026-11-02 21:44:30,027 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:32,190 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:33,926 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.
+2026-11-02 21:44:34,278 - pages.login_page - INFO - Iniciando sesión con el usuario: standard_user
+2026-11-02 21:44:34,467 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): 'standard_user'.
+2026-11-02 21:44:34,579 - pages.base_page - INFO - Texto introducido en el elemento (id, password): 'secret_sauce'.
+2026-11-02 21:44:34,858 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).
+2026-11-02 21:44:34,940 - pages.base_page - INFO - El elemento (class name, title) es visible.
+2026-11-02 21:44:34,940 - pages.inventory_page - INFO - Añadiendo al carrito el producto: Sauce Labs Backpack
+2026-11-02 21:44:35,222 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()='Sauce Labs Backpack']/ancestor::div[@class='inventory_item']//button).
+2026-11-02 21:44:35,222 - pages.inventory_page - INFO - Navegando al carrito de compras.
+2026-11-02 21:44:35,549 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).
+2026-11-02 21:44:36,902 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).
+2026-11-02 21:44:36,902 - pages.checkout_page - INFO - Verificando que el formulario de checkout sea visible.
+2026-11-02 21:44:36,918 - pages.base_page - INFO - El elemento (id, first-name) es visible.
+2026-11-02 21:44:36,918 - pages.checkout_page - INFO - Rellenando información de envío: Cristian Purpura, CP: 10001
+2026-11-02 21:44:37,117 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): 'Cristian'.
+2026-11-02 21:44:37,270 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): 'Purpura'.
+2026-11-02 21:44:37,402 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): '10001'.
+2026-11-02 21:44:37,699 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).
+2026-11-02 21:44:37,699 - pages.checkout_page - INFO - Finalizando la orden de compra.
+2026-11-02 21:44:38,025 - pages.base_page - INFO - Clic realizado en el elemento (id, finish).
+2026-11-02 21:44:38,051 - pages.base_page - INFO - Texto obtenido del elemento (class name, complete-header): 'Thank you for your order!'.
+2026-11-02 21:44:38,051 - test_ecommerce_flow - INFO - ¡Flujo E2E de compra completado y validado exitosamente!
+2026-11-02 21:44:38,052 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:40,240 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.
+2026-11-02 21:44:42,021 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).
+2026-11-02 21:44:42,417 - pages.base_page - INFO - El elemento (id, login-button) es visible.
+2026-11-02 21:44:42,417 - test_ecommerce_flow - ERROR - Forzando un fallo de aserción para verificar la captura de pantalla.
+2026-11-02 21:44:42,707 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\Users\lenovo\OneDrive\Escritorio\proyecto-final-automation-testing-cristian-purpura\screenshots\2026-11-02_21-44-42_test_forced_failure_for_screenshot.png
+2026-11-02 21:44:42,844 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.

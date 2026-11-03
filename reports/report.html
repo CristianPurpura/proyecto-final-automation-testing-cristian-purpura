@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">report.html</title>
+      <style type="text/css">body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  /* do not increase min-width as some may use split screens */
+  min-width: 800px;
+  color: #999;
+}
+
+h1 {
+  font-size: 24px;
+  color: black;
+}
+
+h2 {
+  font-size: 16px;
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+a {
+  color: #999;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+#environment td {
+  padding: 5px;
+  border: 1px solid #e6e6e6;
+  vertical-align: top;
+}
+#environment tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
+#environment ul {
+  margin: 0;
+  padding: 0 20px;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed,
+.passed .col-result {
+  color: green;
+}
+
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
+  color: orange;
+}
+
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
+  color: red;
+}
+
+.col-links__extra {
+  margin-right: 3px;
+}
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+#results-table {
+  border: 1px solid #e6e6e6;
+  color: #999;
+  font-size: 12px;
+  width: 100%;
+}
+#results-table th,
+#results-table td {
+  padding: 5px;
+  border: 1px solid #e6e6e6;
+  text-align: left;
+}
+#results-table th {
+  font-weight: bold;
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+.logwrapper {
+  max-height: 230px;
+  overflow-y: scroll;
+  background-color: #e6e6e6;
+}
+.logwrapper.expanded {
+  max-height: none;
+}
+.logwrapper.expanded .logexpander:after {
+  content: "collapse [-]";
+}
+.logwrapper .logexpander {
+  z-index: 1;
+  position: sticky;
+  top: 10px;
+  width: max-content;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px 7px;
+  margin: 10px 0 10px calc(100% - 80px);
+  cursor: pointer;
+  background-color: #e6e6e6;
+}
+.logwrapper .logexpander:after {
+  content: "expand [+]";
+}
+.logwrapper .logexpander:hover {
+  color: #000;
+  border-color: #000;
+}
+.logwrapper .log {
+  min-height: 40px;
+  position: relative;
+  top: -50px;
+  height: calc(100% + 50px);
+  border: 1px solid #e6e6e6;
+  color: black;
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  padding: 5px;
+  padding-right: 80px;
+  white-space: pre-wrap;
+}
+
+div.media {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin: 0 5px;
+  overflow: hidden;
+  width: 320px;
+}
+
+.media-container {
+  display: grid;
+  grid-template-columns: 25px auto 25px;
+  align-items: center;
+  flex: 1 1;
+  overflow: hidden;
+  height: 200px;
+}
+
+.media-container--fullscreen {
+  grid-template-columns: 0px auto 0px;
+}
+
+.media-container__nav--right,
+.media-container__nav--left {
+  text-align: center;
+  cursor: pointer;
+}
+
+.media-container__viewport {
+  cursor: pointer;
+  text-align: center;
+  height: inherit;
+}
+.media-container__viewport img,
+.media-container__viewport video {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.media__name,
+.media__counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 0 0 25px;
+  align-items: center;
+}
+
+.collapsible td:not(.col-links) {
+  cursor: pointer;
+}
+.collapsible td:not(.col-links):hover::after {
+  color: #bbb;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.col-result {
+  width: 130px;
+}
+.col-result:hover::after {
+  content: " (hide details)";
+}
+
+.col-result.collapsed:hover::after {
+  content: " (show details)";
+}
+
+#environment-header h2:hover::after {
+  content: " (hide details)";
+  color: #bbb;
+  font-style: italic;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#environment-header.collapsed h2:hover::after {
+  content: " (show details)";
+  color: #bbb;
+  font-style: italic;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+  cursor: pointer;
+}
+.sortable.desc:after {
+  content: " ";
+  position: relative;
+  left: 5px;
+  bottom: -12.5px;
+  border: 10px solid #4caf50;
+  border-bottom: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+.sortable.asc:after {
+  content: " ";
+  position: relative;
+  left: 5px;
+  bottom: 12.5px;
+  border: 10px solid #4caf50;
+  border-top: 0;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.hidden, .summary__reload__button.hidden {
+  display: none;
+}
+
+.summary__data {
+  flex: 0 0 550px;
+}
+.summary__reload {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+}
+.summary__reload__button {
+  flex: 0 0 300px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  background-color: #4caf50;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.summary__reload__button:hover {
+  background-color: #46a049;
+}
+.summary__spacer {
+  flex: 0 0 550px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters,
+.collapse {
+  display: flex;
+  align-items: center;
+}
+.filters button,
+.collapse button {
+  color: #999;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.filters button:hover,
+.collapse button:hover {
+  color: #ccc;
+}
+
+.filter__label {
+  margin-right: 10px;
+}
+
+      </style>
+    
+  </head>
+  <body>
+    <h1 id="title">report.html</h1>
+    <p>Report generated on 02-Nov-2026 at 21:44:45 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.2.0</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</td>
+        </tr>
+      </tbody>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left">&lt;</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">&gt;</div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">8 tests took 00:00:58.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" >
+            <span class="failed">1 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" >
+            <span class="passed">7 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled>
+            <span class="skipped">0 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" disabled>
+            <span class="error">0 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled>
+            <span class="rerun">0 Reruns</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="retried" disabled>
+            <span class="retried">0 Retried,</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.14.7&#34;, &#34;Platform&#34;: &#34;Windows-11-10.0.22000-SP0&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;9.1.1&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}, &#34;Plugins&#34;: {&#34;html&#34;: &#34;4.2.0&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;}}, &#34;tests&#34;: {&#34;tests/api/test_api_users.py::test_get_users&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/api/test_api_users.py::test_get_users&#34;, &#34;duration&#34;: &#34;00:00:04&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/api/test_api_users.py::test_get_users&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:04&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:43:47,502 - test_api_users - INFO - Ejecutando test_get_users.\n2026-11-02 21:43:47,503 - utils.api_client - INFO - API GET -&amp;gt; URL: https://reqres.in/api/users | Params: {&amp;#x27;page&amp;#x27;: 1}\n2026-11-02 21:43:51,094 - utils.api_client - INFO - API RESPONSE &amp;lt;- Status Code: 200 | Body: {&amp;quot;page&amp;quot;:1,&amp;quot;per_page&amp;quot;:6,&amp;quot;total&amp;quot;:12,&amp;quot;total_pages&amp;quot;:2,&amp;quot;data&amp;quot;:[{&amp;quot;id&amp;quot;:1,&amp;quot;email&amp;quot;:&amp;quot;george.bluth@reqres.in&amp;quot;,&amp;quot;first_name&amp;quot;:&amp;quot;George&amp;quot;,&amp;quot;last_name&amp;quot;:&amp;quot;Bluth&amp;quot;,&amp;quot;avatar&amp;quot;:&amp;quot;https://reqres.in/img/faces/1-image.jpg&amp;quot;},{&amp;quot;id&amp;quot;:2\n2026-11-02 21:43:51,095 - test_api_users - INFO - test_get_users completado exitosamente.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_api_users:test_api_users.py:21 Ejecutando test_get_users.\nINFO     utils.api_client:api_client.py:41 API GET -&amp;gt; URL: https://reqres.in/api/users | Params: {&amp;#x27;page&amp;#x27;: 1}\nINFO     utils.api_client:api_client.py:43 API RESPONSE &amp;lt;- Status Code: 200 | Body: {&amp;quot;page&amp;quot;:1,&amp;quot;per_page&amp;quot;:6,&amp;quot;total&amp;quot;:12,&amp;quot;total_pages&amp;quot;:2,&amp;quot;data&amp;quot;:[{&amp;quot;id&amp;quot;:1,&amp;quot;email&amp;quot;:&amp;quot;george.bluth@reqres.in&amp;quot;,&amp;quot;first_name&amp;quot;:&amp;quot;George&amp;quot;,&amp;quot;last_name&amp;quot;:&amp;quot;Bluth&amp;quot;,&amp;quot;avatar&amp;quot;:&amp;quot;https://reqres.in/img/faces/1-image.jpg&amp;quot;},{&amp;quot;id&amp;quot;:2\nINFO     test_api_users:test_api_users.py:31 test_get_users completado exitosamente.\n\n&#34;}], &#34;tests/api/test_api_users.py::test_create_user&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/api/test_api_users.py::test_create_user&#34;, &#34;duration&#34;: &#34;00:00:02&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/api/test_api_users.py::test_create_user&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:02&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:43:51,100 - test_api_users - INFO - Ejecutando test_create_user.\n2026-11-02 21:43:51,101 - utils.api_client - INFO - API POST -&amp;gt; URL: https://reqres.in/api/users | Payload JSON: {&amp;#x27;name&amp;#x27;: &amp;#x27;Cristian Purpura&amp;#x27;, &amp;#x27;job&amp;#x27;: &amp;#x27;QA Automation / Logistics&amp;#x27;} | Data: None\n2026-11-02 21:43:52,632 - utils.api_client - INFO - API RESPONSE &amp;lt;- Status Code: 201 | Body: {&amp;quot;name&amp;quot;:&amp;quot;Cristian Purpura&amp;quot;,&amp;quot;job&amp;quot;:&amp;quot;QA Automation / Logistics&amp;quot;,&amp;quot;id&amp;quot;:&amp;quot;186&amp;quot;,&amp;quot;createdAt&amp;quot;:&amp;quot;2026-11-03T00:43:42.520Z&amp;quot;,&amp;quot;support&amp;quot;:{&amp;quot;url&amp;quot;:&amp;quot;https://reqres.in/go/posthog&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;PostHog ingests and stores your a\n2026-11-02 21:43:52,633 - test_api_users - INFO - Usuario creado exitosamente con ID: 186\n\n------------------------------ Captured log call -------------------------------\nINFO     test_api_users:test_api_users.py:39 Ejecutando test_create_user.\nINFO     utils.api_client:api_client.py:60 API POST -&amp;gt; URL: https://reqres.in/api/users | Payload JSON: {&amp;#x27;name&amp;#x27;: &amp;#x27;Cristian Purpura&amp;#x27;, &amp;#x27;job&amp;#x27;: &amp;#x27;QA Automation / Logistics&amp;#x27;} | Data: None\nINFO     utils.api_client:api_client.py:62 API RESPONSE &amp;lt;- Status Code: 201 | Body: {&amp;quot;name&amp;quot;:&amp;quot;Cristian Purpura&amp;quot;,&amp;quot;job&amp;quot;:&amp;quot;QA Automation / Logistics&amp;quot;,&amp;quot;id&amp;quot;:&amp;quot;186&amp;quot;,&amp;quot;createdAt&amp;quot;:&amp;quot;2026-11-03T00:43:42.520Z&amp;quot;,&amp;quot;support&amp;quot;:{&amp;quot;url&amp;quot;:&amp;quot;https://reqres.in/go/posthog&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;PostHog ingests and stores your a\nINFO     test_api_users:test_api_users.py:56 Usuario creado exitosamente con ID: 186\n\n&#34;}], &#34;tests/api/test_api_users.py::test_delete_user&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/api/test_api_users.py::test_delete_user&#34;, &#34;duration&#34;: &#34;00:00:25&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/api/test_api_users.py::test_delete_user&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:25&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:43:52,643 - test_api_users - INFO - Ejecutando test_delete_user.\n2026-11-02 21:43:52,643 - test_api_users - INFO - Eliminando usuario con ID: 186\n2026-11-02 21:43:52,644 - utils.api_client - INFO - API DELETE -&amp;gt; URL: https://reqres.in/api/users/186\n2026-11-02 21:44:17,294 - utils.api_client - INFO - API RESPONSE &amp;lt;- Status Code: 204\n2026-11-02 21:44:17,295 - test_api_users - INFO - Usuario con ID 186 eliminado exitosamente.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_api_users:test_api_users.py:67 Ejecutando test_delete_user.\nINFO     test_api_users:test_api_users.py:71 Eliminando usuario con ID: 186\nINFO     utils.api_client:api_client.py:77 API DELETE -&amp;gt; URL: https://reqres.in/api/users/186\nINFO     utils.api_client:api_client.py:79 API RESPONSE &amp;lt;- Status Code: 204\nINFO     test_api_users:test_api_users.py:77 Usuario con ID 186 eliminado exitosamente.\n\n&#34;}], &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data0]&#34;, &#34;duration&#34;: &#34;00:00:05&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:05&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;---------------------------- Captured stderr setup -----------------------------\n2026-11-02 21:44:17,302 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.\n\n------------------------------ Captured log setup ------------------------------\nINFO     conftest:conftest.py:22 Inicializando Chrome WebDriver desde conftest.py.\n\n----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:44:19,093 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: standard_user\n2026-11-02 21:44:19,470 - pages.login_page - INFO - Iniciando sesi\u00f3n con el usuario: standard_user\n2026-11-02 21:44:19,681 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): &amp;#x27;standard_user&amp;#x27;.\n2026-11-02 21:44:19,807 - pages.base_page - INFO - Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\n2026-11-02 21:44:20,160 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).\n2026-11-02 21:44:20,228 - pages.base_page - INFO - El elemento (class name, title) es visible.\n2026-11-02 21:44:20,228 - test_ecommerce_flow - INFO - Login exitoso verificado para standard_user.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:31 Ejecutando test_login_parametized para usuario: standard_user\nINFO     pages.login_page:login_page.py:29 Iniciando sesi\u00f3n con el usuario: standard_user\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, user-name): &amp;#x27;standard_user&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, login-button).\nINFO     pages.base_page:base_page.py:120 El elemento (class name, title) es visible.\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:40 Login exitoso verificado para standard_user.\n\n--------------------------- Captured stderr teardown ---------------------------\n2026-11-02 21:44:20,229 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.\n\n---------------------------- Captured log teardown -----------------------------\nINFO     conftest:conftest.py:25 Cerrando Chrome WebDriver desde conftest.py.&#34;}], &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data1]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data1]&#34;, &#34;duration&#34;: &#34;00:00:05&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data1]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:05&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;---------------------------- Captured stderr setup -----------------------------\n2026-11-02 21:44:22,433 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.\n\n------------------------------ Captured log setup ------------------------------\nINFO     conftest:conftest.py:22 Inicializando Chrome WebDriver desde conftest.py.\n\n----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:44:24,096 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: locked_out_user\n2026-11-02 21:44:24,446 - pages.login_page - INFO - Iniciando sesi\u00f3n con el usuario: locked_out_user\n2026-11-02 21:44:24,644 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): &amp;#x27;locked_out_user&amp;#x27;.\n2026-11-02 21:44:24,781 - pages.base_page - INFO - Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\n2026-11-02 21:44:25,062 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).\n2026-11-02 21:44:25,062 - pages.login_page - INFO - Obteniendo mensaje de error de login.\n2026-11-02 21:44:25,089 - pages.base_page - INFO - Texto obtenido del elemento (css selector, h3[data-test=&amp;#x27;error&amp;#x27;]): &amp;#x27;Epic sadface: Sorry, this user has been locked out.&amp;#x27;.\n2026-11-02 21:44:25,090 - test_ecommerce_flow - INFO - Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:31 Ejecutando test_login_parametized para usuario: locked_out_user\nINFO     pages.login_page:login_page.py:29 Iniciando sesi\u00f3n con el usuario: locked_out_user\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, user-name): &amp;#x27;locked_out_user&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, login-button).\nINFO     pages.login_page:login_page.py:41 Obteniendo mensaje de error de login.\nINFO     pages.base_page:base_page.py:101 Texto obtenido del elemento (css selector, h3[data-test=&amp;#x27;error&amp;#x27;]): &amp;#x27;Epic sadface: Sorry, this user has been locked out.&amp;#x27;.\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:44 Mensaje de error validado correctamente para locked_out_user: Epic sadface: Sorry, this user has been locked out.\n\n--------------------------- Captured stderr teardown ---------------------------\n2026-11-02 21:44:25,091 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.\n\n---------------------------- Captured log teardown -----------------------------\nINFO     conftest:conftest.py:25 Cerrando Chrome WebDriver desde conftest.py.&#34;}], &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data2]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data2]&#34;, &#34;duration&#34;: &#34;00:00:05&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/ui/test_ecommerce_flow.py::test_login_parametized[user_data2]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:05&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;---------------------------- Captured stderr setup -----------------------------\n2026-11-02 21:44:27,243 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.\n\n------------------------------ Captured log setup ------------------------------\nINFO     conftest:conftest.py:22 Inicializando Chrome WebDriver desde conftest.py.\n\n----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:44:28,920 - test_ecommerce_flow - INFO - Ejecutando test_login_parametized para usuario: problem_user\n2026-11-02 21:44:29,272 - pages.login_page - INFO - Iniciando sesi\u00f3n con el usuario: problem_user\n2026-11-02 21:44:29,499 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): &amp;#x27;problem_user&amp;#x27;.\n2026-11-02 21:44:29,630 - pages.base_page - INFO - Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\n2026-11-02 21:44:29,955 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).\n2026-11-02 21:44:30,026 - pages.base_page - INFO - El elemento (class name, title) es visible.\n2026-11-02 21:44:30,026 - test_ecommerce_flow - INFO - Login exitoso verificado para problem_user.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:31 Ejecutando test_login_parametized para usuario: problem_user\nINFO     pages.login_page:login_page.py:29 Iniciando sesi\u00f3n con el usuario: problem_user\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, user-name): &amp;#x27;problem_user&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, login-button).\nINFO     pages.base_page:base_page.py:120 El elemento (class name, title) es visible.\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:40 Login exitoso verificado para problem_user.\n\n--------------------------- Captured stderr teardown ---------------------------\n2026-11-02 21:44:30,027 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.\n\n---------------------------- Captured log teardown -----------------------------\nINFO     conftest:conftest.py:25 Cerrando Chrome WebDriver desde conftest.py.&#34;}], &#34;tests/ui/test_ecommerce_flow.py::test_e2e_purchase_flow&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;tests/ui/test_ecommerce_flow.py::test_e2e_purchase_flow&#34;, &#34;duration&#34;: &#34;00:00:08&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/ui/test_ecommerce_flow.py::test_e2e_purchase_flow&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:08&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;---------------------------- Captured stderr setup -----------------------------\n2026-11-02 21:44:32,190 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.\n\n------------------------------ Captured log setup ------------------------------\nINFO     conftest:conftest.py:22 Inicializando Chrome WebDriver desde conftest.py.\n\n----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:44:33,926 - test_ecommerce_flow - INFO - Iniciando test de flujo completo E2E de compra.\n2026-11-02 21:44:34,278 - pages.login_page - INFO - Iniciando sesi\u00f3n con el usuario: standard_user\n2026-11-02 21:44:34,467 - pages.base_page - INFO - Texto introducido en el elemento (id, user-name): &amp;#x27;standard_user&amp;#x27;.\n2026-11-02 21:44:34,579 - pages.base_page - INFO - Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\n2026-11-02 21:44:34,858 - pages.base_page - INFO - Clic realizado en el elemento (id, login-button).\n2026-11-02 21:44:34,940 - pages.base_page - INFO - El elemento (class name, title) es visible.\n2026-11-02 21:44:34,940 - pages.inventory_page - INFO - A\u00f1adiendo al carrito el producto: Sauce Labs Backpack\n2026-11-02 21:44:35,222 - pages.base_page - INFO - Clic realizado en el elemento (xpath, //div[text()=&amp;#x27;Sauce Labs Backpack&amp;#x27;]/ancestor::div[@class=&amp;#x27;inventory_item&amp;#x27;]//button).\n2026-11-02 21:44:35,222 - pages.inventory_page - INFO - Navegando al carrito de compras.\n2026-11-02 21:44:35,549 - pages.base_page - INFO - Clic realizado en el elemento (class name, shopping_cart_link).\n2026-11-02 21:44:36,902 - pages.base_page - INFO - Clic realizado en el elemento (id, checkout).\n2026-11-02 21:44:36,902 - pages.checkout_page - INFO - Verificando que el formulario de checkout sea visible.\n2026-11-02 21:44:36,918 - pages.base_page - INFO - El elemento (id, first-name) es visible.\n2026-11-02 21:44:36,918 - pages.checkout_page - INFO - Rellenando informaci\u00f3n de env\u00edo: Cristian Purpura, CP: 10001\n2026-11-02 21:44:37,117 - pages.base_page - INFO - Texto introducido en el elemento (id, first-name): &amp;#x27;Cristian&amp;#x27;.\n2026-11-02 21:44:37,270 - pages.base_page - INFO - Texto introducido en el elemento (id, last-name): &amp;#x27;Purpura&amp;#x27;.\n2026-11-02 21:44:37,402 - pages.base_page - INFO - Texto introducido en el elemento (id, postal-code): &amp;#x27;10001&amp;#x27;.\n2026-11-02 21:44:37,699 - pages.base_page - INFO - Clic realizado en el elemento (id, continue).\n2026-11-02 21:44:37,699 - pages.checkout_page - INFO - Finalizando la orden de compra.\n2026-11-02 21:44:38,025 - pages.base_page - INFO - Clic realizado en el elemento (id, finish).\n2026-11-02 21:44:38,051 - pages.base_page - INFO - Texto obtenido del elemento (class name, complete-header): &amp;#x27;Thank you for your order!&amp;#x27;.\n2026-11-02 21:44:38,051 - test_ecommerce_flow - INFO - \u00a1Flujo E2E de compra completado y validado exitosamente!\n\n------------------------------ Captured log call -------------------------------\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:51 Iniciando test de flujo completo E2E de compra.\nINFO     pages.login_page:login_page.py:29 Iniciando sesi\u00f3n con el usuario: standard_user\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, user-name): &amp;#x27;standard_user&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, password): &amp;#x27;secret_sauce&amp;#x27;.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, login-button).\nINFO     pages.base_page:base_page.py:120 El elemento (class name, title) es visible.\nINFO     pages.inventory_page:inventory_page.py:26 A\u00f1adiendo al carrito el producto: Sauce Labs Backpack\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (xpath, //div[text()=&amp;#x27;Sauce Labs Backpack&amp;#x27;]/ancestor::div[@class=&amp;#x27;inventory_item&amp;#x27;]//button).\nINFO     pages.inventory_page:inventory_page.py:35 Navegando al carrito de compras.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (class name, shopping_cart_link).\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, checkout).\nINFO     pages.checkout_page:checkout_page.py:26 Verificando que el formulario de checkout sea visible.\nINFO     pages.base_page:base_page.py:120 El elemento (id, first-name) es visible.\nINFO     pages.checkout_page:checkout_page.py:33 Rellenando informaci\u00f3n de env\u00edo: Cristian Purpura, CP: 10001\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, first-name): &amp;#x27;Cristian&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, last-name): &amp;#x27;Purpura&amp;#x27;.\nINFO     pages.base_page:base_page.py:82 Texto introducido en el elemento (id, postal-code): &amp;#x27;10001&amp;#x27;.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, continue).\nINFO     pages.checkout_page:checkout_page.py:43 Finalizando la orden de compra.\nINFO     pages.base_page:base_page.py:61 Clic realizado en el elemento (id, finish).\nINFO     pages.base_page:base_page.py:101 Texto obtenido del elemento (class name, complete-header): &amp;#x27;Thank you for your order!&amp;#x27;.\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:85 \u00a1Flujo E2E de compra completado y validado exitosamente!\n\n--------------------------- Captured stderr teardown ---------------------------\n2026-11-02 21:44:38,052 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.\n\n---------------------------- Captured log teardown -----------------------------\nINFO     conftest:conftest.py:25 Cerrando Chrome WebDriver desde conftest.py.&#34;}], &#34;tests/ui/test_ecommerce_flow.py::test_forced_failure_for_screenshot&#34;: [{&#34;extras&#34;: [{&#34;name&#34;: &#34;Captura de Fallo&#34;, &#34;format_type&#34;: &#34;image&#34;, &#34;content&#34;: &#34;data:image/png;base64,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AAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAACBlAwAAAAAQCAlAwAAAAAQSMkAAAAAAARSMgAAAAAAgZQMAAAAAEAgJQMAAAAAEEjJAAAAAAAEUjIAAAAAAIGUDAAAAABAICUDAAAAABBIyQAAAAAABFIyAAAAAADBrwEAAP//6ALyswAAAAZJREFUAwAgeV8VHY4y/wAAAABJRU5ErkJggg==&#34;, &#34;mime_type&#34;: &#34;image/png&#34;, &#34;extension&#34;: &#34;png&#34;}], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;tests/ui/test_ecommerce_flow.py::test_forced_failure_for_screenshot&#34;, &#34;duration&#34;: &#34;00:00:04&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;tests/ui/test_ecommerce_flow.py::test_forced_failure_for_screenshot&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:04&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;driver = &amp;lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&amp;quot;11562a394298900afa5eeb6936bbaf01&amp;quot;)&amp;gt;\n\n    @pytest.mark.ui\n    def test_forced_failure_for_screenshot(driver):\n        &amp;quot;&amp;quot;&amp;quot;\n        Test dise\u00f1ado deliberadamente para fallar.\n        Valida la captura de pantalla autom\u00e1tica.\n        &amp;quot;&amp;quot;&amp;quot;\n        logger.info(&amp;quot;Ejecutando test_forced_failure_for_screenshot (fallo intencional).&amp;quot;)\n        driver.get(&amp;quot;https://www.saucedemo.com/&amp;quot;)\n    \n        login_page = LoginPage(driver)\n        assert login_page.is_element_visible(*login_page.LOGIN_BUTTON), &amp;quot;El bot\u00f3n de login deber\u00eda ser visible.&amp;quot;\n    \n        logger.error(&amp;quot;Forzando un fallo de aserci\u00f3n para verificar la captura de pantalla.&amp;quot;)\n&amp;gt;       assert False, &amp;quot;Forzando fallo para validar la captura de pantalla en el reporte HTML.&amp;quot;\nE       AssertionError: Forzando fallo para validar la captura de pantalla en el reporte HTML.\nE       assert False\n\ntests\\ui\\test_ecommerce_flow.py:100: AssertionError\n\n---------------------------- Captured stderr setup -----------------------------\n2026-11-02 21:44:40,240 - conftest - INFO - Inicializando Chrome WebDriver desde conftest.py.\n\n------------------------------ Captured log setup ------------------------------\nINFO     conftest:conftest.py:22 Inicializando Chrome WebDriver desde conftest.py.\n\n----------------------------- Captured stderr call -----------------------------\n2026-11-02 21:44:42,021 - test_ecommerce_flow - INFO - Ejecutando test_forced_failure_for_screenshot (fallo intencional).\n2026-11-02 21:44:42,417 - pages.base_page - INFO - El elemento (id, login-button) es visible.\n2026-11-02 21:44:42,417 - test_ecommerce_flow - ERROR - Forzando un fallo de aserci\u00f3n para verificar la captura de pantalla.\n\n------------------------------ Captured log call -------------------------------\nINFO     test_ecommerce_flow:test_ecommerce_flow.py:93 Ejecutando test_forced_failure_for_screenshot (fallo intencional).\nINFO     pages.base_page:base_page.py:120 El elemento (id, login-button) es visible.\nERROR    test_ecommerce_flow:test_ecommerce_flow.py:99 Forzando un fallo de aserci\u00f3n para verificar la captura de pantalla.\n\n--------------------------- Captured stderr teardown ---------------------------\n2026-11-02 21:44:42,707 - conftest - ERROR - Test fallido: test_forced_failure_for_screenshot. Screenshot guardado en: C:\\Users\\lenovo\\OneDrive\\Escritorio\\proyecto-final-automation-testing-cristian-purpura\\screenshots\\2026-11-02_21-44-42_test_forced_failure_for_screenshot.png\n2026-11-02 21:44:42,844 - conftest - INFO - Cerrando Chrome WebDriver desde conftest.py.\n\n---------------------------- Captured log teardown -----------------------------\nINFO     conftest:conftest.py:25 Cerrando Chrome WebDriver desde conftest.py.&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > .col-result')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > .col-result')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+  </body>
+</html>
